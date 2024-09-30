@@ -1,14 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float speed = 5f;
+    public float speed = 30f;
     private Vector2 _moveDirection;
     public InputActionReference moveAction;
     public InputActionReference fireAction;
@@ -16,9 +19,14 @@ public class PlayerController : MonoBehaviour
     public Vector2 xLimit;
     public Vector2 yLimit;
 
+    
+    private int score = 0;
+    public TextMeshPro text;
+
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         xLimit = new Vector2(-30f, 30f);
         yLimit = new Vector2(-50f, 50f);
     }
@@ -55,4 +63,28 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Fire");
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            Time.timeScale = 0;
+            ResetGame();
+        }
+    }
+
+    public void ResetGame()
+    {
+        
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void AddScore()
+    {
+        score += 1;
+        text.text = $"{score}";
+    }
+
+
 }

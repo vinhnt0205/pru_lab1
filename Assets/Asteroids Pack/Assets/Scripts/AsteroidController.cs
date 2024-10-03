@@ -7,7 +7,6 @@ public class AsteroidController : MonoBehaviour
     // Start is called before the first frame update
     public float speed = 5f;  // Speed of the asteroid
 
-    public GameObject enemyPrefab;
     public float minInstantiateValue;
     public float maxInstantiateValue;
     public float destroyTime = 30f;
@@ -35,8 +34,6 @@ public class AsteroidController : MonoBehaviour
         }
 
     }
-
-    
 
 }
 

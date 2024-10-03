@@ -19,10 +19,6 @@ public class PlayerController : MonoBehaviour
     public Vector2 xLimit;
     public Vector2 yLimit;
 
-    
-    private int score = 0;
-    public TextMeshPro text;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -71,20 +67,17 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             Time.timeScale = 0;
             ResetGame();
+            ScoreManager.score -= 5;
+            if (ScoreManager.score < 0)
+            {
+                ScoreManager.score = 0;
+            }
         }
     }
 
     public void ResetGame()
     {
-        
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("GameOver");
     }
-
-    public void AddScore()
-    {
-        score += 1;
-        text.text = $"{score}";
-    }
-
 
 }

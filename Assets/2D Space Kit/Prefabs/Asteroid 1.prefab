@@ -359,7 +359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  enemyPrefab: {fileID: 0}
   minInstantiateValue: 0
   maxInstantiateValue: 0
   destroyTime: 10

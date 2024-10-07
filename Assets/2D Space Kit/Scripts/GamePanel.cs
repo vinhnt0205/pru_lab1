@@ -16,7 +16,7 @@ public class GamePanel : MonoBehaviour
     {
         Time.timeScale = 1;
         InvokeRepeating("InstantiateEnemy", 1f, 1f);
-        InvokeRepeating("InstantiateStar", 1f, 10f);
+        InvokeRepeating("InstantiateStar", 1f, 3f);
     }
 
     // Update is called once per frame

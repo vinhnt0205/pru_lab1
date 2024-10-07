@@ -64,19 +64,19 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
-            Destroy(gameObject);
-            Time.timeScale = 0;
-            ResetGame();
             ScoreManager.score -= 5;
-            if (ScoreManager.score < 0)
+            if (ScoreManager.score <= 0)
             {
                 ScoreManager.score = 0;
+                ResetGame();
             }
         }
     }
 
     public void ResetGame()
     {
+        Destroy(gameObject);
+        Time.timeScale = 0;
         SceneManager.LoadScene("GameOver");
     }
 

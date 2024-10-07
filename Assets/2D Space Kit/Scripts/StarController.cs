@@ -25,7 +25,7 @@ public class StarController : MonoBehaviour
         {
             Destroy(gameObject);
             ScoreManager.score += 10;
-
+            ScoreManager.highScore += 10;
         }
     }
 }

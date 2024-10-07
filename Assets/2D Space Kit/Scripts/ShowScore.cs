@@ -9,8 +9,9 @@ public class ShowScore : MonoBehaviour
     public Text text;
     void Start()
     {
-        text.text = "SCORE: " + ScoreManager.score;
+        text.text = "SCORE: " + ScoreManager.highScore;
         ScoreManager.score = 0;
+        ScoreManager.highScore = 0;
     }
 
     // Update is called once per frame
